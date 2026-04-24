@@ -85,10 +85,8 @@ describe Whatsapp::PhoneInfoService do
         allow(api_client).to receive(:fetch_phone_numbers).with(waba_id).and_return(phone_response)
       end
 
-      it 'uses the first available phone number as fallback' do
-        result = service.perform
-        expect(result[:phone_number_id]).to eq('available_phone_id')
-        expect(result[:phone_number]).to eq('+9876543210')
+      it 'raises an error rather than silently connecting the wrong number' do
+        expect { service.perform }.to raise_error(/different_id.*not found|Phone number ID different_id/i)
       end
     end
 

@@ -111,6 +111,7 @@ en:
       invalid_token_permissions: 'The access token does not have the required permissions for WhatsApp.'
       phone_info_fetch_failed: 'Failed to fetch phone number information. Please try again.'
       phone_number_already_exists: 'Channel already exists for this phone number: %{phone_number}, please contact support if the error persists'
+      phone_number_id_not_found: 'Phone number ID %{phone_number_id} was not found in the WhatsApp Business Account. Please retry the signup and ensure you select the correct phone number.'
       reauthorization:
         generic: 'Failed to reauthorize WhatsApp. Please try again.'
         not_supported: 'Reauthorization is not supported for this type of WhatsApp channel.'

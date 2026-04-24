@@ -32,7 +32,10 @@ class Whatsapp::PhoneInfoService
     return nil if phone_numbers.blank?
 
     if @phone_number_id.present?
-      phone_numbers.find { |phone| phone['id'] == @phone_number_id } || phone_numbers.first
+      phone = phone_numbers.find { |p| p['id'] == @phone_number_id }
+      raise I18n.t('errors.whatsapp.phone_number_id_not_found', phone_number_id: @phone_number_id) if phone.nil?
+
+      phone
     else
       phone_numbers.first
     end
